@@ -180,10 +180,264 @@
             background: #28a745;
             color: white;
             margin-right: 10px;
+            position: relative;
         }
         
         .btn-export:hover {
             background: #218838;
+        }
+        
+        .export-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .export-menu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            z-index: 1000;
+            top: 45px;
+            right: 0;
+            overflow: hidden;
+        }
+        
+        .export-menu.show {
+            display: block;
+        }
+        
+        .export-option {
+            padding: 12px 16px;
+            cursor: pointer;
+            transition: background 0.2s;
+            color: #333;
+            font-weight: 500;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .export-option:last-child {
+            border-bottom: none;
+        }
+        
+        .export-option:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .btn-import {
+            background: #007bff;
+            color: white;
+            margin-right: 10px;
+        }
+        
+        .btn-import:hover {
+            background: #0056b3;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            overflow: auto;
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .modal-header h2 {
+            color: #333;
+            margin: 0;
+        }
+        
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+        }
+        
+        .close:hover {
+            color: #000;
+        }
+        
+        .preview-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        
+        .preview-table th,
+        .preview-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        .preview-table th {
+            background-color: #132e46;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .preview-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .preview-table tr.invalid {
+            background-color: #ffe6e6;
+        }
+        
+        .preview-stats {
+            background: #e1e8ed;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .preview-stats p {
+            margin: 5px 0;
+            color: #333;
+        }
+        
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .companies-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .companies-table thead {
+            background: linear-gradient(135deg, #112e48 0%, #0f5073 100%);
+            color: white;
+        }
+        
+        .companies-table th {
+            padding: 14px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .companies-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e1e8ed;
+            font-size: 14px;
+        }
+        
+        .companies-table tbody tr {
+            transition: background-color 0.2s;
+        }
+        
+        .companies-table tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .companies-table .actions-cell {
+            white-space: nowrap;
+            width: 130px;
+        }
+        
+        .companies-table .actions-cell .btn {
+            padding: 6px 12px;
+            font-size: 12px;
+            margin-right: 4px;
+        }
+        
+        .companies-table .code-cell {
+            width: 100px;
+            font-weight: 600;
+            color: #0f5073;
+        }
+        
+        .companies-table .expand-cell {
+            width: 40px;
+            text-align: center;
+        }
+        
+        .expand-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            color: #666;
+            padding: 4px;
+            transition: transform 0.3s;
+        }
+        
+        .expand-btn:hover {
+            color: #0f5073;
+        }
+        
+        .expand-btn.expanded {
+            transform: rotate(180deg);
+        }
+        
+        .details-row {
+            display: none;
+            background-color: #f8f9fa;
+        }
+        
+        .details-row.show {
+            display: table-row;
+        }
+        
+        .details-cell {
+            padding: 20px !important;
+            border-bottom: 2px solid #e1e8ed !important;
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+        
+        .detail-item {
+            font-size: 13px;
+        }
+        
+        .detail-item strong {
+            display: block;
+            color: #555;
+            margin-bottom: 4px;
+            font-size: 12px;
+        }
+        
+        .detail-item span {
+            color: #333;
         }
         
         .btn-delete {
@@ -408,8 +662,15 @@
                     <div class="entries-header">
                         <h3>Individual Contacts</h3>
                         <div>
-                            <button class="btn btn-export" onclick="exportToExcel('individual')">📊 Export to Excel</button>
-                            <button class="btn btn-export" onclick="exportToPDF('individual')">📄 Export to PDF</button>
+                            <button class="btn btn-import" onclick="document.getElementById('import-individual').click()">📥 Import</button>
+                            <input type="file" id="import-individual" accept=".xlsx,.xls" style="display:none" onchange="handleImport(event, 'individual')">
+                            <div class="export-dropdown">
+                                <button class="btn btn-export" onclick="toggleExportMenu('individual')">📤 Export</button>
+                                <div id="export-menu-individual" class="export-menu">
+                                    <div class="export-option" onclick="exportToExcel('individual'); hideExportMenu('individual')">📊 Export to Excel</div>
+                                    <div class="export-option" onclick="exportToPDF('individual'); hideExportMenu('individual')">📄 Export to PDF</div>
+                                </div>
+                            </div>
                             <input type="text" class="search-box" placeholder="Search individuals..." onkeyup="filterEntries('individual', this.value)">
                         </div>
                     </div>
@@ -424,6 +685,10 @@
                     <form id="company-form">
                         <div class="form-grid">
                             <div class="form-group">
+                                <label>Company Code</label>
+                                <input type="text" name="companyCode">
+                            </div>
+                            <div class="form-group">
                                 <label>Company Name *</label>
                                 <input type="text" name="companyName" required>
                             </div>
@@ -432,28 +697,20 @@
                                 <input type="text" name="industry">
                             </div>
                             <div class="form-group">
-                                <label>Main Email</label>
+                                <label>Email</label>
                                 <input type="email" name="email">
                             </div>
                             <div class="form-group">
-                                <label>Main Phone</label>
+                                <label>Phone</label>
                                 <input type="tel" name="phone">
                             </div>
                             <div class="form-group">
-                                <label>Fax</label>
-                                <input type="tel" name="fax">
+                                <label>Mobile Phone</label>
+                                <input type="tel" name="mobPhone">
                             </div>
                             <div class="form-group">
                                 <label>Website</label>
                                 <input type="url" name="website">
-                            </div>
-                            <div class="form-group">
-                                <label>Contact Person</label>
-                                <input type="text" name="contactPerson">
-                            </div>
-                            <div class="form-group">
-                                <label>Contact Title</label>
-                                <input type="text" name="contactTitle">
                             </div>
                         </div>
                         <div class="form-grid">
@@ -478,14 +735,16 @@
                                 <input type="text" name="country">
                             </div>
                             <div class="form-group">
-                                <label>Tax ID / VAT</label>
-                                <input type="text" name="taxId">
+                                <label>Bank Account</label>
+                                <input type="text" name="bankAccount" maxlength="15" pattern="[0-9]{0,15}" title="Enter up to 15 digits">
                             </div>
-                        </div>
-                        <div class="form-grid">
-                            <div class="form-group" style="grid-column: 1 / -1;">
-                                <label>Notes</label>
-                                <textarea name="notes"></textarea>
+                            <div class="form-group">
+                                <label>EMBS</label>
+                                <input type="text" name="embs">
+                            </div>
+                            <div class="form-group">
+                                <label>EMDB</label>
+                                <input type="text" name="emdb">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Add Company</button>
@@ -497,13 +756,36 @@
                     <div class="entries-header">
                         <h3>Company Contacts</h3>
                         <div>
-                            <button class="btn btn-export" onclick="exportToExcel('company')">📊 Export to Excel</button>
-                            <button class="btn btn-export" onclick="exportToPDF('company')">📄 Export to PDF</button>
+                            <button class="btn btn-import" onclick="document.getElementById('import-company').click()">📥 Import</button>
+                            <input type="file" id="import-company" accept=".xlsx,.xls" style="display:none" onchange="handleImport(event, 'company')">
+                            <div class="export-dropdown">
+                                <button class="btn btn-export" onclick="toggleExportMenu('company')">📤 Export</button>
+                                <div id="export-menu-company" class="export-menu">
+                                    <div class="export-option" onclick="exportToExcel('company'); hideExportMenu('company')">📊 Export to Excel</div>
+                                    <div class="export-option" onclick="exportToPDF('company'); hideExportMenu('company')">📄 Export to PDF</div>
+                                </div>
+                            </div>
                             <input type="text" class="search-box" placeholder="Search companies..." onkeyup="filterEntries('company', this.value)">
                         </div>
                     </div>
                     <div id="companies-list" class="entries-list"></div>
                 </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Import Preview Modal -->
+    <div id="import-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Import Preview</h2>
+                <span class="close" onclick="closeImportModal()">&times;</span>
+            </div>
+            <div class="preview-stats" id="import-stats"></div>
+            <div id="import-preview" style="overflow-x: auto;"></div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="closeImportModal()">Cancel</button>
+                <button class="btn btn-primary" id="confirm-import-btn" onclick="confirmImport()">Import Valid Records</button>
             </div>
         </div>
     </div>
@@ -616,21 +898,21 @@
             e.preventDefault();
             const formData = new FormData(e.target);
             const data = {
+                companyCode: formData.get('companyCode'),
                 companyName: formData.get('companyName'),
                 industry: formData.get('industry'),
                 email: formData.get('email'),
                 phone: formData.get('phone'),
-                fax: formData.get('fax'),
+                mobPhone: formData.get('mobPhone'),
                 website: formData.get('website'),
-                contactPerson: formData.get('contactPerson'),
-                contactTitle: formData.get('contactTitle'),
                 street: formData.get('street'),
                 city: formData.get('city'),
                 state: formData.get('state'),
                 postalCode: formData.get('postalCode'),
                 country: formData.get('country'),
-                taxId: formData.get('taxId'),
-                notes: formData.get('notes')
+                bankAccount: formData.get('bankAccount'),
+                embs: formData.get('embs'),
+                emdb: formData.get('emdb')
             };
             
             try {
@@ -714,7 +996,7 @@
         function renderCompanies(filter = '') {
             const list = document.getElementById('companies-list');
             const filtered = companies.filter(c => 
-                (c.companyName + ' ' + c.industry + ' ' + c.email + ' ' + c.contactPerson).toLowerCase().includes(filter.toLowerCase())
+                (c.companyCode + ' ' + c.companyName + ' ' + c.industry + ' ' + c.email).toLowerCase().includes(filter.toLowerCase())
             );
             
             if (filtered.length === 0) {
@@ -730,49 +1012,74 @@
                 return;
             }
             
-            list.innerHTML = filtered.map(company => `
-                <div class="entry-card">
-                    <div class="entry-header">
-                        <div class="entry-title">${company.companyName}</div>
-                        <div class="entry-type">Company</div>
-                    </div>
-                    <div class="entry-details">
-                        ${company.industry ? `<div class="entry-detail"><strong>Industry:</strong> <span>${company.industry}</span></div>` : ''}
-                        ${company.email ? `<div class="entry-detail"><strong>Email:</strong> <span>${company.email}</span></div>` : ''}
-                        ${company.phone ? `<div class="entry-detail"><strong>Phone:</strong> <span>${company.phone}</span></div>` : ''}
-                        ${company.fax ? `<div class="entry-detail"><strong>Fax:</strong> <span>${company.fax}</span></div>` : ''}
-                        ${company.website ? `<div class="entry-detail"><strong>Website:</strong> <span>${company.website}</span></div>` : ''}
-                        ${company.contactPerson ? `<div class="entry-detail"><strong>Contact Person:</strong> <span>${company.contactPerson}</span></div>` : ''}
-                        ${company.contactTitle ? `<div class="entry-detail"><strong>Contact Title:</strong> <span>${company.contactTitle}</span></div>` : ''}
-                        ${company.taxId ? `<div class="entry-detail"><strong>Tax ID:</strong> <span>${company.taxId}</span></div>` : ''}
-                        ${company.street || company.city ? `<div class="entry-detail"><strong>Address:</strong> <span>${[company.street, company.city, company.state, company.postalCode, company.country].filter(Boolean).join(', ')}</span></div>` : ''}
-                        ${company.notes ? `<div class="entry-detail" style="grid-column: 1 / -1;"><strong>Notes:</strong> <span>${company.notes}</span></div>` : ''}
-                    </div>
-                    <div class="entry-actions">
-                        <button class="btn btn-edit" onclick="editCompany('${company.id}')">Edit</button>
-                        <button class="btn btn-delete" onclick="deleteCompany('${company.id}')">Delete</button>
-                    </div>
-                </div>
-            `).join('');
+            let tableHTML = `
+                <table class="companies-table">
+                    <thead>
+                        <tr>
+                            <th>Actions</th>
+                            <th>Code</th>
+                            <th>Company Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+            
+            filtered.forEach(company => {
+                const hasDetails = company.industry || company.mobPhone || company.website || 
+                                  company.embs || company.bankAccount || company.street || 
+                                  company.city || company.emdb;
+                
+                tableHTML += `
+                    <tr>
+                        <td class="actions-cell">
+                            <button class="btn btn-edit" onclick="editCompany('${company.id}')">Edit</button>
+                            <button class="btn btn-delete" onclick="deleteCompany('${company.id}')">Delete</button>
+                        </td>
+                        <td class="code-cell">${company.companyCode || '-'}</td>
+                        <td>${company.companyName}</td>
+                        <td>${company.email || '-'}</td>
+                        <td>${company.phone || '-'}</td>
+                        <td class="expand-cell">
+                            ${hasDetails ? `<button class="expand-btn" onclick="toggleCompanyDetails('${company.id}')">▼</button>` : ''}
+                        </td>
+                    </tr>
+                    ${hasDetails ? `
+                    <tr class="details-row" id="details-${company.id}">
+                        <td colspan="6" class="details-cell">
+                            <div class="details-grid">
+                                ${company.industry ? `<div class="detail-item"><strong>Industry</strong><span>${company.industry}</span></div>` : ''}
+                                ${company.website ? `<div class="detail-item"><strong>Website</strong><span>${company.website}</span></div>` : ''}
+                                ${company.mobPhone ? `<div class="detail-item"><strong>Mobile Phone</strong><span>${company.mobPhone}</span></div>` : ''}
+                                ${company.bankAccount ? `<div class="detail-item"><strong>Bank Account</strong><span>${company.bankAccount}</span></div>` : ''}
+                                ${company.embs ? `<div class="detail-item"><strong>EMBS</strong><span>${company.embs}</span></div>` : ''}
+                                ${company.street || company.city ? `<div class="detail-item"><strong>Address</strong><span>${[company.street, company.city, company.state, company.postalCode, company.country].filter(Boolean).join(', ')}</span></div>` : ''}
+                                ${company.emdb ? `<div class="detail-item" style="grid-column: 1 / -1;"><strong>EMDB</strong><span>${company.emdb}</span></div>` : ''}
+                            </div>
+                        </td>
+                    </tr>
+                    ` : ''}
+                `;
+            });
+            
+            tableHTML += `
+                    </tbody>
+                </table>
+            `;
+            
+            list.innerHTML = tableHTML;
         }
         
-        // Edit functions
-        function editIndividual(id) {
-            const person = individuals.find(i => i.id === id);
-            if (!person) return;
+        function toggleCompanyDetails(id) {
+            const detailsRow = document.getElementById(`details-${id}`);
+            const expandBtn = event.target;
             
-            editingId = id;
-            const form = document.getElementById('individual-form');
-            
-            form.firstName.value = person.firstName || '';
-            form.lastName.value = person.lastName || '';
-            form.email.value = person.email || '';
-            form.phone.value = person.phone || '';
-            form.mobile.value = person.mobile || '';
-            form.jobTitle.value = person.jobTitle || '';
-            form.company.value = person.company || '';
-            form.birthday.value = person.birthday || '';
-            form.street.value = person.street || '';
+            if (detailsRow) {
+                detailsRow.classList.toggle('show');
+                expandBtn.classList.toggle('expanded');
+            }
             form.city.value = person.city || '';
             form.state.value = person.state || '';
             form.postalCode.value = person.postalCode || '';
@@ -790,21 +1097,21 @@
             editingId = id;
             const form = document.getElementById('company-form');
             
+            form.companyCode.value = company.companyCode || '';
             form.companyName.value = company.companyName || '';
             form.industry.value = company.industry || '';
             form.email.value = company.email || '';
             form.phone.value = company.phone || '';
-            form.fax.value = company.fax || '';
+            form.mobPhone.value = company.mobPhone || '';
             form.website.value = company.website || '';
-            form.contactPerson.value = company.contactPerson || '';
-            form.contactTitle.value = company.contactTitle || '';
             form.street.value = company.street || '';
             form.city.value = company.city || '';
             form.state.value = company.state || '';
             form.postalCode.value = company.postalCode || '';
             form.country.value = company.country || '';
-            form.taxId.value = company.taxId || '';
-            form.notes.value = company.notes || '';
+            form.bankAccount.value = company.bankAccount || '';
+            form.embs.value = company.embs || '';
+            form.emdb.value = company.emdb || '';
             
             form.querySelector('button[type="submit"]').textContent = 'Update Company';
             form.scrollIntoView({ behavior: 'smooth' });
@@ -909,16 +1216,17 @@
                 });
             } else {
                 const tableData = data.map(c => [
+                    c.companyCode || '',
                     c.companyName,
                     c.industry || '',
                     c.email || '',
                     c.phone || '',
-                    c.contactPerson || '',
+                    c.mobPhone || '',
                     [c.street, c.city, c.state].filter(Boolean).join(', ')
                 ]);
                 
                 doc.autoTable({
-                    head: [['Company', 'Industry', 'Email', 'Phone', 'Contact Person', 'Address']],
+                    head: [['Code', 'Company', 'Industry', 'Email', 'Phone', 'Mobile Phone', 'Address']],
                     body: tableData,
                     startY: 30,
                     styles: { fontSize: 8 }
@@ -928,6 +1236,201 @@
             const fileName = `${type}_contacts_${new Date().toISOString().split('T')[0]}.pdf`;
             doc.save(fileName);
         }
+        
+        // Toggle export menu
+        function toggleExportMenu(type) {
+            const menu = document.getElementById(`export-menu-${type}`);
+            menu.classList.toggle('show');
+        }
+        
+        // Hide export menu
+        function hideExportMenu(type) {
+            const menu = document.getElementById(`export-menu-${type}`);
+            menu.classList.remove('show');
+        }
+        
+        // Close export menus when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.export-dropdown')) {
+                document.querySelectorAll('.export-menu').forEach(menu => {
+                    menu.classList.remove('show');
+                });
+            }
+        });
+        
+        // Import functionality
+        let importData = [];
+        let importType = '';
+        
+        function handleImport(event, type) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            importType = type;
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                try {
+                    const data = new Uint8Array(e.target.result);
+                    const workbook = XLSX.read(data, { type: 'array' });
+                    const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+                    const jsonData = XLSX.utils.sheet_to_json(firstSheet);
+                    
+                    if (jsonData.length === 0) {
+                        alert('The Excel file is empty or has no valid data.');
+                        return;
+                    }
+                    
+                    // Validate and prepare data
+                    const validData = [];
+                    const invalidData = [];
+                    
+                    jsonData.forEach((row, index) => {
+                        const isValid = validateImportRow(row, type);
+                        const rowData = { ...row, _rowNumber: index + 2, _isValid: isValid };
+                        
+                        if (isValid) {
+                            validData.push(rowData);
+                        } else {
+                            invalidData.push(rowData);
+                        }
+                    });
+                    
+                    importData = validData;
+                    showImportPreview(validData, invalidData, type);
+                    
+                } catch (error) {
+                    alert('Error reading Excel file: ' + error.message);
+                    console.error(error);
+                }
+            };
+            
+            reader.readAsArrayBuffer(file);
+            // Reset file input
+            event.target.value = '';
+        }
+        
+        function validateImportRow(row, type) {
+            if (type === 'individual') {
+                return row.firstName && row.firstName.toString().trim() !== '' &&
+                       row.lastName && row.lastName.toString().trim() !== '';
+            } else {
+                return row.companyName && row.companyName.toString().trim() !== '';
+            }
+        }
+        
+        function showImportPreview(validData, invalidData, type) {
+            const modal = document.getElementById('import-modal');
+            const statsDiv = document.getElementById('import-stats');
+            const previewDiv = document.getElementById('import-preview');
+            
+            // Show stats
+            statsDiv.innerHTML = `
+                <p><strong>Total rows:</strong> ${validData.length + invalidData.length}</p>
+                <p><strong>Valid rows (will be imported):</strong> <span style="color: #28a745;">${validData.length}</span></p>
+                <p><strong>Invalid rows (will be skipped):</strong> <span style="color: #dc3545;">${invalidData.length}</span></p>
+                ${invalidData.length > 0 ? '<p style="color: #dc3545; margin-top: 10px;">⚠️ Invalid rows are highlighted in red below (missing required fields)</p>' : ''}
+            `;
+            
+            // Show preview table
+            if (validData.length === 0 && invalidData.length === 0) {
+                previewDiv.innerHTML = '<p>No data to preview</p>';
+            } else {
+                const allData = [...validData, ...invalidData];
+                const columns = type === 'individual' 
+                    ? ['firstName', 'lastName', 'email', 'phone', 'mobile', 'company', 'jobTitle']
+                    : ['companyCode', 'companyName', 'industry', 'email', 'phone', 'mobPhone', 'bankAccount', 'embs'];
+                
+                let tableHTML = '<table class="preview-table"><thead><tr>';
+                tableHTML += '<th>Row</th>';
+                columns.forEach(col => {
+                    const required = (type === 'individual' && (col === 'firstName' || col === 'lastName')) ||
+                                   (type === 'company' && col === 'companyName');
+                    tableHTML += `<th>${col}${required ? ' *' : ''}</th>`;
+                });
+                tableHTML += '</tr></thead><tbody>';
+                
+                allData.forEach(row => {
+                    tableHTML += `<tr class="${row._isValid ? '' : 'invalid'}">`;
+                    tableHTML += `<td>${row._rowNumber}</td>`;
+                    columns.forEach(col => {
+                        const value = row[col] || '';
+                        tableHTML += `<td>${value}</td>`;
+                    });
+                    tableHTML += '</tr>';
+                });
+                
+                tableHTML += '</tbody></table>';
+                previewDiv.innerHTML = tableHTML;
+            }
+            
+            // Enable/disable import button
+            document.getElementById('confirm-import-btn').disabled = validData.length === 0;
+            
+            modal.style.display = 'block';
+        }
+        
+        function closeImportModal() {
+            document.getElementById('import-modal').style.display = 'none';
+            importData = [];
+        }
+        
+        async function confirmImport() {
+            if (importData.length === 0) {
+                alert('No valid data to import');
+                return;
+            }
+            
+            const confirmBtn = document.getElementById('confirm-import-btn');
+            confirmBtn.disabled = true;
+            confirmBtn.textContent = 'Importing...';
+            
+            let successCount = 0;
+            let errorCount = 0;
+            
+            for (const row of importData) {
+                try {
+                    // Remove metadata fields
+                    const { _rowNumber, _isValid, id, created_at, updated_at, ...cleanData } = row;
+                    
+                    const endpoint = importType === 'individual' ? '/api/individuals' : '/api/companies';
+                    const response = await fetch(endpoint, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(cleanData)
+                    });
+                    
+                    if (response.ok) {
+                        successCount++;
+                    } else {
+                        errorCount++;
+                    }
+                } catch (error) {
+                    console.error('Error importing row:', error);
+                    errorCount++;
+                }
+            }
+            
+            closeImportModal();
+            
+            // Show result
+            alert(`Import completed!\n\nSuccessfully imported: ${successCount}\nFailed: ${errorCount}`);
+            
+            // Reload data
+            if (importType === 'individual') {
+                loadIndividuals();
+            } else {
+                loadCompanies();
+            }
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('import-modal');
+            if (event.target === modal) {
+                closeImportModal();
+            }
+        };
     </script>
 </body>
 </html>

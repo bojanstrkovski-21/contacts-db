@@ -63,16 +63,18 @@ def get_individuals():
 def add_individual():
     """Add new individual"""
     data = load_toml(INDIVIDUALS_FILE)
+    if data is None or not isinstance(data, dict):
+        return jsonify({'error': 'Failed to load contacts. Contact was not saved.'}), 500
     contact_data = request.json
-    
+
     # Generate ID
     next_id = get_next_id(data)
     contact_key = f"contact_{next_id}"
-    
+
     # Add timestamp
     contact_data['created_at'] = datetime.now().isoformat()
     contact_data['updated_at'] = datetime.now().isoformat()
-    
+
     # Save
     data[contact_key] = contact_data
     if save_toml(INDIVIDUALS_FILE, data):
@@ -129,14 +131,16 @@ def get_companies():
 def add_company():
     """Add new company"""
     data = load_toml(COMPANIES_FILE)
+    if data is None or not isinstance(data, dict):
+        return jsonify({'error': 'Failed to load companies. Company was not saved.'}), 500
     contact_data = request.json
-    
+
     next_id = get_next_id(data)
     contact_key = f"contact_{next_id}"
-    
+
     contact_data['created_at'] = datetime.now().isoformat()
     contact_data['updated_at'] = datetime.now().isoformat()
-    
+
     data[contact_key] = contact_data
     if save_toml(COMPANIES_FILE, data):
         contact_data['id'] = contact_key
